@@ -4,7 +4,7 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:html2md/html2md.dart' as html2md;
 import 'package:http/http.dart' as http;
 import 'package:markdown/markdown.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class EasyWebViewImpl {
   final String src;
@@ -146,7 +146,7 @@ class LocalMarkdown extends StatelessWidget {
   Widget build(BuildContext context) {
     return Markdown(
       data: data,
-      onTapLink: (_, url, __) => url == null ? null : launch(url),
+      onTapLink: (_, url, __) => url == null ? null : launchUrlString(url),
       selectable: isSelectable,
     );
   }
